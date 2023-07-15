@@ -42,3 +42,10 @@
 .postTime {
   font-size: 0.9rem;
 }
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+}

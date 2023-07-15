@@ -27,17 +27,34 @@ export const NotificationList = ({ users }) => {
       activityLink: "#",
     },
   ]);
+
+  function changeReadStatus(index) {
+    const updateReadStatus = notifications.map((notification, i) => {
+      if (i === index) {
+        return {
+          ...notification,
+          isRead: true,
+        };
+      }
+      return notification;
+    });
+    setNotifications(updateReadStatus);
+  }
+
   return (
     <div className={styles.wrapper}>
-      {notifications.map((notification) => {
+      {notifications.map((notification, index) => {
         return (
           <SingleNotification
+            key={index}
             userName={notification.userName}
             userPicture={notification.userPicture}
             actionName={notification.notificationType}
             isRead={notification.isRead}
             activity={notification.activity}
             activityLink={notification.activityLink}
+            handleClick={changeReadStatus}
+            index={index}
           />
         );
       })}

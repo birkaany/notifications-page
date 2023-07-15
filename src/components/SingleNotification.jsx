@@ -6,6 +6,8 @@ export const SingleNotification = ({
   activity,
   activityLink,
   userPicture,
+  handleClick,
+  index,
 }) => {
   const actions = {
     reaction: "reacted to your recent post",
@@ -16,7 +18,10 @@ export const SingleNotification = ({
   };
 
   return (
-    <div className={`${styles.wrapper} ${isRead ? styles.isRead : undefined}`}>
+    <div
+      onClick={() => handleClick(index)}
+      className={`${styles.wrapper} ${isRead ? styles.isRead : undefined}`}
+    >
       <div className={styles.img}>
         <img src={`/profile-pics/${userPicture}.webp`} alt="" />
       </div>
@@ -25,7 +30,8 @@ export const SingleNotification = ({
           <h2>{userName}</h2>
           <p>{actionName && actions[actionName]}</p>
 
-          <a href={activityLink}>{activity}</a>
+          <a href={activityLink}>{activity && activity}</a>
+          {!isRead && <span className={styles.indicator}></span>}
         </div>
         <div className={styles.postTime}>1m ago</div>
       </div>
