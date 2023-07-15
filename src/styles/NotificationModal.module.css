@@ -26,3 +26,9 @@
   color: var(--primaryColor);
   cursor: pointer;
 }
+
+.headerWrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}

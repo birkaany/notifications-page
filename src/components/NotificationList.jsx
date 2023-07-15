@@ -1,33 +1,11 @@
-import { useState } from "react";
 import styles from "../styles/NotificationList.module.css";
+
 import { SingleNotification } from "./SingleNotification";
+import { useNotificationsContext } from "../context/NotificationsContext";
+import { useUsersContext } from "../context/UsersContext";
 
-export const NotificationList = ({ users }) => {
-  const [notifications, setNotifications] = useState([
-    {
-      userName: users[0].name,
-      userPicture: users[0].profilePic,
-      notificationType: "reaction",
-      isRead: false,
-      activity: "My first chess tournement!",
-      activityLink: "#",
-    },
-    {
-      userName: users[1].name,
-      userPicture: users[1].profilePic,
-      notificationType: "follow",
-      isRead: false,
-    },
-    {
-      userName: users[2].name,
-      userPicture: users[2].profilePic,
-      notificationType: "joinGroup",
-      isRead: false,
-      activity: "Chess Club",
-      activityLink: "#",
-    },
-  ]);
-
+export const NotificationList = () => {
+  const { notifications, setNotifications } = useNotificationsContext();
   function changeReadStatus(index) {
     const updateReadStatus = notifications.map((notification, i) => {
       if (i === index) {
