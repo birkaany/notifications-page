@@ -1,7 +1,19 @@
 import styles from "../styles/NotificationModal.module.css";
 import { NotificationCounter } from "./NotificationCounter";
 import { NotificationList } from "./NotificationList";
-export const NotificationModal = ({ users }) => {
+import { useNotificationsContext } from "@/context/NotificationsContext";
+export const NotificationModal = () => {
+  const { notifications, setNotifications } = useNotificationsContext();
+  function handleReadAll() {
+    const updatedNotifications = notifications.map((notification) => {
+      return {
+        ...notification,
+        isRead: true,
+      };
+    });
+    setNotifications(updatedNotifications);
+  }
+
   return (
     <main className={styles.wrapper}>
       <header className={styles.header}>
@@ -9,9 +21,11 @@ export const NotificationModal = ({ users }) => {
           <h1 className={styles.h1}>Notifications</h1>
           <NotificationCounter />
         </div>
-        <button className={styles.btnMarkAll}>Mark all as read</button>
+        <button onClick={handleReadAll} className={styles.btnMarkAll}>
+          Mark all as read
+        </button>
       </header>
-      <NotificationList users={users} />
+      <NotificationList />
     </main>
   );
 };

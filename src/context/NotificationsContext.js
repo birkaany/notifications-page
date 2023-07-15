@@ -28,6 +28,18 @@ export function NotificationsContextWrapper({ children }) {
       activity: "Chess Club",
       activityLink: "#",
     },
+    {
+      userName: users[3]?.name,
+      userPicture: users[3]?.profilePic,
+      notificationType: "comment",
+      isRead: false,
+    },
+    {
+      userName: users[4]?.name,
+      userPicture: users[4]?.profilePic,
+      notificationType: "leftGroup",
+      isRead: false,
+    },
   ]);
   return (
     <NotificationsContext.Provider value={{ notifications, setNotifications }}>
