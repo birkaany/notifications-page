@@ -1,0 +1,29 @@
+.wrapper {
+  background-color: white;
+  width: 700px;
+  border-radius: 1rem;
+
+  padding: 2rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.h1 {
+  font-size: 1.3rem;
+  color: var(--darkColor);
+}
+
+.btnMarkAll {
+  outline: none;
+  background-color: transparent;
+  border: none;
+  transition: 0.2s;
+}
+
+.btnMarkAll:hover {
+  color: var(--primaryColor);
+  cursor: pointer;
+}

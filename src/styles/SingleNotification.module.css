@@ -1,0 +1,44 @@
+.wrapper {
+  background-color: var(--secondaryColor);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+.isRead {
+  background-color: white;
+}
+
+.img {
+  width: 3rem;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.content div {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+.content div h2 {
+  font-weight: bold;
+  color: var(--darkColor);
+}
+
+.content div a {
+  font-weight: bold;
+}
+
+.content div h2,
+.content div p,
+.content div a {
+  font-size: 1rem;
+}
+
+.postTime {
+  font-size: 0.9rem;
+}
